@@ -1,0 +1,87 @@
+﻿<colgroup >
+<col span="1" style="width: 10%;" >
+<col span="1" style="width: 10%;" >
+<col span="1" style="width: 10%;" >
+<col span="1" style="width: 10%;" >
+<col span="1" style="width: 10%;" >
+<col span="1" style="width: 10%;" >
+<col span="1" style="width: 60%;" >
+</colgroup >
+
+- - - - thead rebuild might embed slightly different - - - -
+
+@model IEnumerable<FullElectricCars.Models.carDetails >
+
+@ {
+    ViewBag .Title = "Index";
+}
+
+<style >
+/*table {
+            table-layout:fixed;
+
+        }*/
+th {
+    text-align: center;
+}
+
+
+
+
+</style >
+
+<h2 > Index</h2 >
+
+<p >
+@Html.ActionLink("Create New", "Create")
+</p >
+<table class="table" >
+<colgroup >
+<col span="1" style="width: 10%;" >
+<col span="1" style="width: 10%;" >
+<col span="1" style="width: 10%;" >
+<col span="1" style="width: 10%;" >
+<col span="1" style="width: 10%;" >
+<col span="1" style="width: 10%;" >
+<col span="1" style="width: 60%;" >
+</colgroup >
+
+
+<tr >
+<th >
+Company Name
+@*@Html.DisplayNameFor(model => model.manufacturers.manufacturerName)*@
+</th >
+<th >
+@Html.DisplayNameFor(model => model.model)
+</th >
+<th >
+@Html.DisplayNameFor(model => model.price)
+</th >
+<th >
+@Html.DisplayNameFor(model => model.mpc)
+</th >
+<th >
+@Html.DisplayNameFor(model => model.image)
+</th >
+<th >
+@Html.DisplayNameFor(model => model.video)
+</th >
+
+<th >
+Controls
+</th >
+</tr >
+
+@foreach (var item in Model) {
+    <tr>
+        <td> @Html.DisplayFor(modelItem => item.manufacturers.manufacturerName) </td
+        <td> @Html.DisplayFor(modelItem => item.model) </td> <td> @Html.DisplayFor(modelItem => item.price) </td>
+        <td> @Html.DisplayFor(modelItem => item.mpc) </td>
+        <td> <img src="~/Content/images/@Html.DisplayFor(modelItem => item.image)" width="200" style=" display: block; margin-left: auto; margin-right: auto;" /> @*@Html.DisplayFor(modelItem => item.image)*@ </td>
+        <td> @Html.DisplayFor(modelItem => item.video) </td>
+        <td> @Html.ActionLink("Edit", "Edit", new { id = item.cid }) | @Html.ActionLink("Details", "Details", new { id = item.cid }) | @Html.ActionLink("Delete", "Delete", new { id = item.cid }) </td>
+        </tr>
+}
+
+</table >

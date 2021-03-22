@@ -1,0 +1,139 @@
+﻿@model IEnumerable<FullElectricCars.Models.manufacturers>
+
+@{
+    ViewBag.Title = "Manufacturer Details"; //--Title for the tab
+}
+
+<style>
+    td {
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    td {
+        border: solid black 1px;
+    }
+
+    td {
+        white-space:normal;
+    }
+
+    table {
+    table-layout: fixed;
+    }
+
+    #ManufacturersBanner {
+        background-image: url('/Content/images/bgimgs/ManufacturingBanner.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 200px;
+        border-radius: 10px;
+    }
+
+    #ManufacturerTitle {
+        font-family: Georgia;
+        font-size: 5rem;
+        text-align: center;
+        border-radius: 10px;
+        background-color: rgba(100, 100, 100, 0.60);
+        color: white;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        height: auto;
+        position: relative;
+        top: 30%;
+        padding: 10px 5px 10px 5px;
+    }
+
+</style>
+<div id="ManufacturersBanner">
+    <h2 id="ManufacturerTitle" style="text-align:center;">Manufacturers Database</h2>
+    </div>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table id="myTable" class="table">
+        <colgroup>
+            <col span="1" style="width: 10%;" />
+            <col span="1" style="width: 10%;">
+            <col span="1" style="width: 10%;">
+            <col span="1" style="width: 10%;">
+            <col span="1" style="width: 10%;">
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 30%;">
+        </colgroup>
+
+        <thead>
+            <tr style="background-color: #00004d;color:white;">
+                <th>
+                    Manufacturer Name
+                    @*@Html.DisplayNameFor(model => model.manufacturerName)*@
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.addressLine1)
+                    </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.city)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.postcode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.tel)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.email)
+                </th>
+                <th>
+                    Web Site
+                    @*@Html.DisplayNameFor(model => model.site)*@
+                </th>
+                <th>
+                    Crud Controls
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.manufacturerName)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.addressLine1)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.city)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.postcode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td class="wrappable">
+
+                        <a href="https://@Html.DisplayFor(modelItem => item.site)" target="_blank">@Html.DisplayFor(modelItem => item.site)</a>
+                    </td>
+                    <td style="text-align:center;">
+                        @Html.ActionLink(" Edit", "Edit", new { id = item.mid }, new { @class = "glyphicon glyphicon-th-list btn btn-primary" })
+                        @Html.ActionLink(" Details", "Details", new { id = item.mid }, new { @class = "glyphicon glyphicon-edit btn btn-warning" })
+                        @Html.ActionLink(" Delete", "Delete", new { id = item.mid }, new { @class = "glyphicon glyphicon-trash btn btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>

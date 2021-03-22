@@ -1,0 +1,105 @@
+﻿<style>
+    h2 {
+        text-align: center;
+    }
+
+    #formdiv {
+        width: 75%;
+        float: left;
+    }
+
+    .myform {
+        width: 100%;
+    }
+
+        .myform label {
+            display: block;
+        }
+
+        .myform input[type="text"],
+        .myform input[type="number"],
+        .myform input[type="email"],
+        textarea {
+            width: 75%;
+        }
+
+    input,
+    select,
+    textarea {
+        max-width: none;
+    }
+
+    #addressbox {
+        width: 25%;
+        float: left;
+        text-align: center;
+        margin-top: 45px;
+        border: 1px solid darkgrey;
+    }
+
+    .clear {
+        clear: both;
+</style>
+
+<h2 @*style="text-align:center;"*@>Contact Information</h2>
+
+
+<div id="formdiv">
+    <fieldset>
+        <form method="post" action="mailto:m_o_q@yahoo.co.uk" enctype="text/plain" class="myform">
+
+            <div>
+                <label> Name: </label>
+                <input type="text" name="name" required>
+            </div>
+
+            <div>
+                <label> Telephone: </label>
+                <input type="number" name="age" required>
+            </div>
+
+            <div>
+                <label> Email: </label>
+                <input type="email" name="email" required>
+            </div>
+
+            <div>
+                <label> Message: </label>
+                <textarea name="message"> </textarea>
+            </div>
+
+            <div class="button">
+                <input type="submit" value="Submit">
+            </div>
+
+        </form>
+    </fieldset>
+</div>
+
+<div id="addressbox">
+    <address>
+        Just IT Training and Apprenticeship<br>
+        2nd Floor, Saint Clare House<br>
+        30-33 Minories, London EC3N 1DD<br>
+        Phone: <a href="tel:020 7426 9835">tel:020 7426 9835 </a><br>
+        Email: <a href="mailto:danielsmithldn@yahoo.com">danielsmithldn@yahoo.com</a>
+
+    </address>
+</div>
+
+<div class="clear">
+</div>
+
+<section>
+    <div class="heading">
+        <h2 @*style="text-align:center;"*@>How To Find Us</h2>
+    </div>
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9932.214472857246!2d-0.075151!3d51.5122323!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7db0f0cc1b2512e5!2sJust%20IT%20Apprenticeships%2C%20Training%20and%20Recruitment!5e0!3m2!1sen!2suk!4v1571752185829!5m2!1sen!2suk" width=100% height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+
+</section>
+
+<address>
+    @*<strong>email:</strong>   <a href="mailto:Support@example.com">danielsmithldn@yahoo.com</a><br />*@
+    @*<strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>*@
+</address>

@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    @Styles.Render("~/Content/css")
+   
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+
+    <style>
+        .navbar-inverse {
+            background-color: #00004d;
+            border-color: #080808;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="progressLDN">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">                
+                    <li>@Html.ActionLink("Cars List", "Index", "carDetails")</li>
+                    <li>@Html.ActionLink("Manufacturers List", "Index", "manufacturers")</li>
+                    <li>@Html.ActionLink("MPC Chart", "Miles", "carDetails")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+
+
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - DanielSmithLDN</p>
+        </footer>
+    </div>
+
+    @RenderSection("scripts", required: false)
+    <script>
+        window.addEventListener("load", function () {
+            const preloadobj = document.querySelector(".progressLDN");
+            preloadobj.classList.add("preload-finish");
+
+        });
+    </script>
+</body>
+</html>

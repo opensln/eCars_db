@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FullElectricCars", "FullElectricCars\FullElectricCars.csproj", "{B5A821F2-ADEC-4C53-95D9-99DAE3B2D27E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5A821F2-ADEC-4C53-95D9-99DAE3B2D27E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5A821F2-ADEC-4C53-95D9-99DAE3B2D27E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5A821F2-ADEC-4C53-95D9-99DAE3B2D27E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5A821F2-ADEC-4C53-95D9-99DAE3B2D27E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD5C13A0-14A4-4DAC-9C11-98635F0E80D9}
+	EndGlobalSection
+EndGlobal

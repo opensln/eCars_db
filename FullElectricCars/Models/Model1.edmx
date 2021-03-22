@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="carDetails">
+          <Key>
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Name="cid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mid" Type="int" Nullable="false" />
+          <Property Name="model" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="price" Type="float" Nullable="false" />
+          <Property Name="mpc" Type="float" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="video" Type="varchar" MaxLength="50" />
+          <Property Name="likes" Type="int" />
+        </EntityType>
+        <EntityType Name="manufacturers">
+          <Key>
+            <PropertyRef Name="mid" />
+          </Key>
+          <Property Name="mid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="manufacturerName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="addressLine1" Type="varchar" MaxLength="50" />
+          <Property Name="city" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="postcode" Type="varchar" MaxLength="50" />
+          <Property Name="tel" Type="varchar" MaxLength="20" />
+          <Property Name="email" Type="varchar(max)" />
+          <Property Name="site" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__carDetails__mid__6E01572D">
+          <End Role="manufacturers" Type="Self.manufacturers" Multiplicity="1" />
+          <End Role="carDetails" Type="Self.carDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="manufacturers">
+              <PropertyRef Name="mid" />
+            </Principal>
+            <Dependent Role="carDetails">
+              <PropertyRef Name="mid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="carDetails" EntityType="Self.carDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="manufacturers" EntityType="Self.manufacturers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__carDetails__mid__6E01572D" Association="Self.FK__carDetails__mid__6E01572D">
+            <End Role="manufacturers" EntitySet="manufacturers" />
+            <End Role="carDetails" EntitySet="carDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="carDetails">
+          <Key>
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Name="cid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mid" Type="Int32" Nullable="false" />
+          <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="price" Type="Double" Nullable="false" />
+          <Property Name="mpc" Type="Double" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="video" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="likes" Type="Int32" />
+          <NavigationProperty Name="manufacturers" Relationship="Self.FK__carDetails__mid__6E01572D" FromRole="carDetails" ToRole="manufacturers" />
+        </EntityType>
+        <EntityType Name="manufacturers">
+          <Key>
+            <PropertyRef Name="mid" />
+          </Key>
+          <Property Name="mid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="manufacturerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="addressLine1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="postcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="site" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="carDetails" Relationship="Self.FK__carDetails__mid__6E01572D" FromRole="manufacturers" ToRole="carDetails" />
+        </EntityType>
+        <Association Name="FK__carDetails__mid__6E01572D">
+          <End Role="manufacturers" Type="Self.manufacturers" Multiplicity="1" />
+          <End Role="carDetails" Type="Self.carDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="manufacturers">
+              <PropertyRef Name="mid" />
+            </Principal>
+            <Dependent Role="carDetails">
+              <PropertyRef Name="mid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LikeFinal" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="carDetails" EntityType="Self.carDetails" />
+          <EntitySet Name="manufacturers" EntityType="Self.manufacturers" />
+          <AssociationSet Name="FK__carDetails__mid__6E01572D" Association="Self.FK__carDetails__mid__6E01572D">
+            <End Role="manufacturers" EntitySet="manufacturers" />
+            <End Role="carDetails" EntitySet="carDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="LikeFinal">
+          <EntitySetMapping Name="carDetails">
+            <EntityTypeMapping TypeName="Model.carDetails">
+              <MappingFragment StoreEntitySet="carDetails">
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="mid" ColumnName="mid" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="mpc" ColumnName="mpc" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="video" ColumnName="video" />
+                <ScalarProperty Name="likes" ColumnName="likes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="manufacturers">
+            <EntityTypeMapping TypeName="Model.manufacturers">
+              <MappingFragment StoreEntitySet="manufacturers">
+                <ScalarProperty Name="mid" ColumnName="mid" />
+                <ScalarProperty Name="manufacturerName" ColumnName="manufacturerName" />
+                <ScalarProperty Name="addressLine1" ColumnName="addressLine1" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="postcode" ColumnName="postcode" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="site" ColumnName="site" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

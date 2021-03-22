@@ -1,0 +1,75 @@
+﻿@model FullElectricCars.Models.carDetails
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>carDetails</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mpc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mpc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image)
+        </dt>
+
+        <dd>
+            <img src="~/Content/images/@Html.DisplayFor(model => model.image)" width="200" style=" display: block; margin-left: auto; margin-right: auto;" />
+            @*@Html.DisplayFor(model => model.image)*@
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.video)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.video)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.likes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.likes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.manufacturers.manufacturerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.manufacturers.manufacturerName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.cid }, new { @class = "btn btn-default" }) |
+    @Html.ActionLink("Back to List", "Index", " ", new { @class = "btn btn-default" })
+</p>

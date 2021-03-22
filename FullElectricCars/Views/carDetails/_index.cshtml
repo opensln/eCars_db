@@ -1,0 +1,39 @@
+﻿@model FullElectricCars.Models.carDetails
+
+<td>@Html.DisplayFor(modelItem => Model.manufacturers.manufacturerName)</td>
+<td>@Html.DisplayFor(modelItem => Model.model)</td>
+<td>@Html.DisplayFor(modelItem => Model.price)</td>
+<td>@Html.DisplayFor(modelItem => Model.mpc)</td>
+<td>
+    <img src="~/Content/images/@Html.DisplayFor(modelItem => Model.image)" width="180" style=" display: block; margin-left: auto; margin-right: auto;" />
+    @*@Html.DisplayFor(modelItem => item.image)*@
+</td>
+<td>
+    @*@Html.DisplayFor(modelItem => item.video)*@
+    <iframe width="200" src="https://www.youtube.com/embed/@Html.DisplayFor(m => Model.video)"></iframe>
+</td>
+<td><span>@Html.DisplayFor(modelItem => Model.likes) </span></td>
+<td>
+   @using (Ajax.BeginForm(
+                    actionName: "Like",
+                    controllerName: "carDetails",
+                    routeValues: new { cid = Model.cid },
+                    ajaxOptions: new AjaxOptions
+                    {
+                        UpdateTargetId = Model.cid.ToString(),
+                        InsertionMode = InsertionMode.Replace
+                    }
+                    ))
+
+    {
+        <input id="likeButton" type="image" src="~/Content/images/likeImg/like.png" width="30" alt="Submit">
+    }
+</td>
+
+<td style="text-align:center; padding: 2px;">
+
+    @Html.ActionLink(" Edit", "Edit", new { id = Model.cid }, new { @class = "glyphicon glyphicon-th-list btn btn-primary" })
+    @Html.ActionLink(" Details", "Details", new { id = Model.cid }, new { @class = "glyphicon glyphicon-edit btn btn-warning" })
+    @Html.ActionLink(" Delete", "Delete", new { id = Model.cid }, new { @class = "glyphicon glyphicon-trash btn btn-danger" })
+
+</td>

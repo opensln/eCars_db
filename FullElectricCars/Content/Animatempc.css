@@ -1,0 +1,43 @@
+﻿
+
+
+.mpcBarh {
+    animation: animate 1 3s;
+}
+@Keyframes animate {
+    0% {
+        width: 0;
+    }
+
+    100% {
+     /*   width: 100%;*/
+    }
+}
+
+.mpcvBar {
+    animation: animatempcvBar 1 3s;
+}
+
+@Keyframes animatempcvBar {
+    0% {
+        height: 0;
+    }
+
+    100% {
+          /*  height: 100%;*/
+    }
+}
+
+
+    /*-----Animation Structure---- div {
+        animation-name: example;
+        animation-duration: 5s;
+        animation-timing-function: linear;
+        animation-delay: 2s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    -----------Animation Shorthand---------- div {
+        animation: example 5s linear 2s infinite alternate;
+    }*/
